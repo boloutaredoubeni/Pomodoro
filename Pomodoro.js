@@ -273,7 +273,7 @@ export default class Pomodoro extends Component {
   componentDidMount() {
     AppState.addEventListener(this.APP_STATE_ID, this._handleAppStateChange)
     this._configureTimer()
-    this._loadUserPreferences()
+    // this._loadUserPreferences()
   }
 
   componentWillUnmount() {
@@ -446,21 +446,21 @@ export default class Pomodoro extends Component {
     const { worktimeKey, breaktimeKey } = this.STORAGE_KEY
     let { onBreak, timer, timeOnClock } = this.state
     try {
-      let worktimeValue = JSON.stringify(worktime)
-      await AsyncStorage.setItem(worktimeKey, worktimeValue)
+      // let worktimeValue = JSON.stringify(worktime)
+      // await AsyncStorage.setItem(worktimeKey, worktimeValue)
 
-      let breaktimeValue = JSON.stringify(breaktime)
-      await AsyncStorage.setItem(breaktimeKey, breaktimeValue)
-      if (_.isEqual(timer, this.PAUSED)) {
-        timeOnClock = onBreak ? breaktime : worktime
-      }
+      // let breaktimeValue = JSON.stringify(breaktime)
+      // await AsyncStorage.setItem(breaktimeKey, breaktimeValue)
+      // if (_.isEqual(timer, this.PAUSED)) {
+      //   timeOnClock = onBreak ? breaktime : worktime
+      // }
 
-      this.setState({
-        timeOnClock,
-        worktime,
-        breaktime,
-        showUserPreferences: false,
-      })
+      // this.setState({
+      //   timeOnClock,
+      //   worktime,
+      //   breaktime,
+      //   showUserPreferences: false,
+      // })
     } catch (error) {
       /** TODO: show error to client */
       this._receiveError(error)
